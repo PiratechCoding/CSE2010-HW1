@@ -1,0 +1,15 @@
+﻿  main.c
+D:\School\Programming\New folder\hw1\Project1\main.c(62,38): warning C4047: 'function': 'repList **' differs in levels of indirection from 'repList *'
+D:\School\Programming\New folder\hw1\Project1\main.c(62,27): warning C4024: 'printAvailableRepList': different types for formal and actual parameter 1
+D:\School\Programming\New folder\hw1\Project1\main.c(59,9): warning C4101: 'waitTime': unreferenced local variable
+D:\School\Programming\New folder\hw1\Project1\main.c(72,50): warning C4047: 'function': 'char **' differs in levels of indirection from 'char *'
+D:\School\Programming\New folder\hw1\Project1\main.c(72,38): warning C4024: 'appendRepList': different types for formal and actual parameter 2
+D:\School\Programming\New folder\hw1\Project1\main.c(79,33): warning C4047: 'function': 'char *' differs in levels of indirection from 'char *[128]'
+D:\School\Programming\New folder\hw1\Project1\main.c(79,24): warning C4024: 'strcpy': different types for formal and actual parameter 1
+D:\School\Programming\New folder\hw1\Project1\main.c(79,42): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char **'
+D:\School\Programming\New folder\hw1\Project1\main.c(79,35): warning C4024: 'strcpy': different types for formal and actual parameter 2
+D:\School\Programming\New folder\hw1\Project1\main.c(79,6): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\School\Programming\New folder\hw1\Project1\main.c(95,37): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[128]'
+D:\School\Programming\New folder\hw1\Project1\main.c(95,28): warning C4024: 'puts': different types for formal and actual parameter 1
+D:\School\Programming\New folder\hw1\Project1\main.c(93,2): warning C4047: 'initializing': 'repList *' differs in levels of indirection from 'repList **'
+D:\School\Programming\New folder\hw1\Project1\main.c(98,2): warning C4047: 'initializing': 'repList *' differs in levels of indirection from 'repList **'

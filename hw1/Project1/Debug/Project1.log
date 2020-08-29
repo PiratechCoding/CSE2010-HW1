@@ -1,0 +1,60 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(477,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  main.c
+D:\School\Programming\HomeWork\hw1\Project1\repInteractions.h(23,65): warning C4047: 'function': 'char *' differs in levels of indirection from 'char *[1]'
+D:\School\Programming\HomeWork\hw1\Project1\repInteractions.h(23,62): warning C4024: 'appendRepList': different types for formal and actual parameter 2
+D:\School\Programming\HomeWork\hw1\Project1\repInteractions.h(31,29): warning C4047: 'function': 'char *' differs in levels of indirection from 'char *[1]'
+D:\School\Programming\HomeWork\hw1\Project1\repInteractions.h(31,20): warning C4024: 'strcpy': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\repInteractions.h(55,38): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char *[1]'
+D:\School\Programming\HomeWork\hw1\Project1\repInteractions.h(55,29): warning C4024: 'strcmp': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(29,27): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(29,16): warning C4024: 'strcpy': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(32,28): warning C4047: '=': 'custList **' differs in levels of indirection from 'custList *'
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(33,25): warning C4098: 'appendCustList': 'void' function returning a value
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(39,24): warning C4098: 'appendCustList': 'void' function returning a value
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(26,1): warning C4133: 'initializing': incompatible types - from 'repList *' to 'custList *'
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(27,1): warning C4047: 'initializing': 'custList *' differs in levels of indirection from 'custList **'
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(55,55): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(55,44): warning C4024: 'convertToMinutes': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(61,38): warning C4047: 'function': 'char *' differs in levels of indirection from 'int'
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(61,27): warning C4024: 'convertToMinutes': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\customerInteractions.h(43,1): warning C4047: 'initializing': 'custList *' differs in levels of indirection from 'custList **'
+D:\School\Programming\HomeWork\hw1\Project1\chatInteractions.h(21,28): warning C4047: '=': 'chatList **' differs in levels of indirection from 'chatList *'
+D:\School\Programming\HomeWork\hw1\Project1\chatInteractions.h(22,25): warning C4047: 'return': 'chatList *' differs in levels of indirection from 'chatList **'
+D:\School\Programming\HomeWork\hw1\Project1\chatInteractions.h(28,24): warning C4047: 'return': 'chatList *' differs in levels of indirection from 'chatList **'
+D:\School\Programming\HomeWork\hw1\Project1\chatInteractions.h(15,1): warning C4133: 'initializing': incompatible types - from 'repList *' to 'chatList *'
+D:\School\Programming\HomeWork\hw1\Project1\chatInteractions.h(16,1): warning C4047: 'initializing': 'chatList *' differs in levels of indirection from 'chatList **'
+D:\School\Programming\HomeWork\hw1\Project1\chatInteractions.h(32,1): warning C4047: 'initializing': 'chatList *' differs in levels of indirection from 'chatList **'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(52,53): warning C4020: 'parseInputData': too many actual parameters
+D:\School\Programming\HomeWork\hw1\Project1\main.c(68,157): warning C4029: declared formal parameter list different from definition
+D:\School\Programming\HomeWork\hw1\Project1\main.c(77,57): warning C4047: 'function': 'chatList **' differs in levels of indirection from 'chatList *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(77,40): warning C4024: 'appendChatList': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\main.c(83,38): warning C4047: 'function': 'custList **' differs in levels of indirection from 'custList *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(83,21): warning C4024: 'appendCustList': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\main.c(92,53): warning C4047: 'function': 'custList **' differs in levels of indirection from 'custList *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(92,36): warning C4024: 'deleteFromCustList': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\main.c(92,103): warning C4020: 'deleteFromCustList': too many actual parameters
+D:\School\Programming\HomeWork\hw1\Project1\main.c(97,40): warning C4047: 'function': 'chatList **' differs in levels of indirection from 'chatList *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(97,23): warning C4024: 'deleteFromChatList': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\main.c(100,37): warning C4047: 'function': 'chatList **' differs in levels of indirection from 'chatList *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(100,20): warning C4024: 'appendChatList': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\main.c(101,54): warning C4047: 'function': 'custList **' differs in levels of indirection from 'custList *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(101,37): warning C4024: 'deleteFromCustList': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\main.c(101,104): warning C4020: 'deleteFromCustList': too many actual parameters
+D:\School\Programming\HomeWork\hw1\Project1\main.c(111,39): warning C4047: 'function': 'repList *' differs in levels of indirection from 'repList **'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(111,25): warning C4024: 'printAvailableRepList': different types for formal and actual parameter 1
+D:\School\Programming\HomeWork\hw1\Project1\main.c(69,1): warning C4133: 'initializing': incompatible types - from 'instructionInputInit *' to 'instructionInput *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(125,43): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(125,39): warning C4024: 'memset': different types for formal and actual parameter 2
+D:\School\Programming\HomeWork\hw1\Project1\main.c(126,42): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(126,38): warning C4024: 'memset': different types for formal and actual parameter 2
+D:\School\Programming\HomeWork\hw1\Project1\main.c(127,44): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(127,40): warning C4024: 'memset': different types for formal and actual parameter 2
+D:\School\Programming\HomeWork\hw1\Project1\main.c(128,43): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(128,39): warning C4024: 'memset': different types for formal and actual parameter 2
+D:\School\Programming\HomeWork\hw1\Project1\main.c(129,46): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(129,42): warning C4024: 'memset': different types for formal and actual parameter 2
+D:\School\Programming\HomeWork\hw1\Project1\main.c(137,59): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(140,45): warning C4013: 'addFieldsToInstruction' undefined; assuming extern returning int
+D:\School\Programming\HomeWork\hw1\Project1\main.c(158,27): warning C4133: 'return': incompatible types - from 'instructionInput *' to 'instructionInputInit *'
+D:\School\Programming\HomeWork\hw1\Project1\main.c(169,33): warning C4047: '=': 'char' differs in levels of indirection from 'void *'
+  Project1.vcxproj -> D:\School\Programming\HomeWork\hw1\Project1\..\Debug\Project1.exe
