@@ -58,13 +58,13 @@ int isRepAvailable(struct repList* workingList) {
              toDelete = toDelete->next;
          }
          else
-             return toDelete;
+             return workingList;
      }
      if (previousNode == NULL) {
          toDelete = toDelete->next;
          return toDelete;
      }
      previousNode->next = toDelete->next;
-     toDelete->next = NULL;
+     free(toDelete);
      return workingList;
  }

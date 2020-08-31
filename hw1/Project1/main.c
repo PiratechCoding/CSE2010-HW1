@@ -51,15 +51,15 @@ int main(int argc, char* argv[]) {
 			fgets(fileBuffer, sizeof(fileBuffer), systemInput);
 			inputErrorReporting = parseInputData(fileBuffer, &headRepList, &headChatList, &headCustList, &waitTime);
 			if (inputErrorReporting == -1) {
-				printf("\nString was not handled properly during execution.\n");
-				exit(-1);
+				printf("\nUnknown Command Parsed During Input\n");
 			}
 		}
-
 		while (!feof(systemInput));
 	}
-	else
+	else {
+		printf("Input File Empty");
 		exit(-1);
+	}
 	return 0;
 }
 
@@ -79,8 +79,8 @@ int parseInputData(char* inputBuffer, struct repList** currentRepList, struct ch
 				*currentRepList = deleteFromRepList((*currentRepList), (*(*currentRepList)->repName));
 			}
 			else {
-				printf("%s %s %s %s\n", currentInsturction->instruction, currentInsturction->timestamp, currentInsturction->custName, currentInsturction->holdType);
-				appendCustList((*currentHoldList), currentInsturction->custName, currentInsturction->timestamp); //Put on Hold
+				printf("%s %s %s %s\n", "PutOnHold", currentInsturction->timestamp, currentInsturction->custName, currentInsturction->holdType);
+				*currentHoldList = appendCustList((*currentHoldList), currentInsturction->custName, currentInsturction->timestamp); //Put on Hold
 			}
 		}
 		else { //Will Callback
@@ -95,16 +95,16 @@ int parseInputData(char* inputBuffer, struct repList** currentRepList, struct ch
 	else if (strcmp(currentInsturction->instruction, "QuitOnHold") == 0) {
 		///Confirm a customer that is on the hold list will no longer be on the hold list, Make sure to add the wait time to the overall wait time
 		printf("%s %s %s\n", currentInsturction->instruction, currentInsturction->timestamp, currentInsturction->custName);
-		*waitTime += deleteFromCustList((*currentHoldList), currentInsturction->custName, currentInsturction->timestamp);
+		*currentHoldList = deleteFromCustList(currentHoldList, currentInsturction->custName, currentInsturction->timestamp,waitTime,1);
 	}
 
 	else if (strcmp(currentInsturction->instruction, "ChatEnded") == 0) { //End current Chat interaction and check if a customer is waiting if a customer is waiting assign a rep 
 		printf("%s %s %s %s \n", currentInsturction->instruction, currentInsturction->custName, currentInsturction->repName, currentInsturction->timestamp);
 		deleteFromChatList((*currentChatList), currentInsturction->custName);
 		if (isCustomerHolding((*currentHoldList))) {
-			printf("RepAssignment %s %s %s\n", currentInsturction->custName, currentInsturction->repName, currentInsturction->timestamp);
+			printf("RepAssignment %s %s %s\n", (*currentHoldList)->custName, currentInsturction->repName, currentInsturction->timestamp);
 			appendChatList((*currentChatList), (*currentHoldList)->custName, currentInsturction->repName);
-			*waitTime += deleteFromCustList((*currentHoldList), (*currentHoldList)->custName, currentInsturction->timestamp);
+			*currentHoldList = deleteFromCustList(currentHoldList, (*currentHoldList)->custName, currentInsturction->timestamp,waitTime,0);
 		}
 		else {
 			appendRepList((*currentRepList), currentInsturction->repName);
@@ -114,15 +114,16 @@ int parseInputData(char* inputBuffer, struct repList** currentRepList, struct ch
 	else if (strcmp(currentInsturction->instruction, "PrintAvailableRepList") == 0) {
 		///Run through the current rep list and print any reps that are not on a chat currently
 		printf("%s %s ", "AvailableRepList", currentInsturction->timestamp);
-		printAvailableRepList(currentRepList);
+		if(*currentRepList != NULL)
+			printAvailableRepList(currentRepList);
 	}
 	else if (strcmp(currentInsturction->instruction, "PrintMaxWaitTime") == 0) {
 		///Print the current overall wait time
 		printf("%s %s %d \n", currentInsturction->instruction, currentInsturction->timestamp, *waitTime);
 	}
 	else
-		return -1; //Handle incorrect or errornous input to ensure stability
-	free(currentInsturction);
+		return -1; //Handle incorrect input to ensure stability
+	//free(currentInsturction);
 	return 0;
 }
 

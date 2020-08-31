@@ -44,6 +44,6 @@ void deleteFromChatList(struct chatList** currentChatList, char* custName) {
         return toDelete;
     }
     previousNode->next = toDelete->next;
-    toDelete->next = NULL;
+    free(toDelete);
     return;
 }

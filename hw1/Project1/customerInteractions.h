@@ -1,14 +1,14 @@
 #pragma once
 //Customer List interatcion
-void appendCustList(struct custList** currentHoldList, char* custName, char* timeStamp); // will parse the PutOnHold request when no reps are ready
-int deleteFromCustList(struct custList** currentHoldList, char* custName); //will handle reps exiting chats and assigning holding customers with them return amount of time waiting
+struct custList* appendCustList(struct custList** currentHoldList, char* custName, char* timeStamp); // will parse the PutOnHold request when no reps are ready
+struct custList* deleteFromCustList(struct custList** currentHoldList, char* custName, char* instructionTimeStamp, int waitTime); //will handle reps exiting chats and assigning holding customers with them return amount of time waiting
 int isCustomerHolding(struct custList* currentHoldList);
 int convertToMinutes(char* timeStamp);
 /// <summary>
 /// 
 struct custList { //List of current customers in queue and time started to wait
 	char custName[128];
-	int timeStamp;
+	char timeStamp[5];
 	struct custList* next;
 };
 
@@ -22,8 +22,8 @@ int convertToMinutes(char* timeStamp) {
 	return timeInMinutes;
 }
 
-void appendCustList(struct custList** currentHoldList, char* custName, char* timeStamp){
-	struct custList* newNode = (struct repList*)malloc(sizeof(struct repList));         //Create Node of List that will be added                                  
+struct custList* appendCustList(struct custList** currentHoldList, char* custName, char* timeStamp){
+	struct custList* newNode = malloc(sizeof(struct custList));         //Create Node of List that will be added                                  
 	struct custList* lookupNode = currentHoldList;                                          //set the working list head into a pointer for finding list
 	strcpy(newNode->custName, custName);                                                 //Append Current Rep into List
 	strcpy(newNode->timeStamp, timeStamp);                                                 //Append Current Rep into List
@@ -39,27 +39,29 @@ void appendCustList(struct custList** currentHoldList, char* custName, char* tim
 	return currentHoldList;
 }
 
-int deleteFromCustList(struct custList** currentHoldList, char* custName) {
-	struct custList* toDelete = currentHoldList;
+struct custList* deleteFromCustList(struct custList** currentHoldList, char* custName,char*instructionTimeStamp, int* waitTime, int isQuitting) {
+	struct custList* toDelete = *currentHoldList;
 	struct custList* previousNode = NULL;
 	int timeInMinutes = 0;
-	while ((strcmp(toDelete->custName, custName) != 0)) {
+	while ((strcmp(toDelete->custName , custName) != 0)) {
 		if (toDelete->next != NULL) {
 			previousNode = toDelete;
 			toDelete = toDelete->next;
 		}
 		else
-			return timeInMinutes;
+			return currentHoldList;
 	}
 	if (previousNode == NULL) {
-		timeInMinutes = convertToMinutes(toDelete->timeStamp);
-		toDelete = toDelete->next;
-		return timeInMinutes;
+		timeInMinutes = convertToMinutes(instructionTimeStamp)-convertToMinutes(toDelete->timeStamp);
+		if(*waitTime < timeInMinutes && isQuitting == 0)
+			*waitTime = timeInMinutes;
+		return currentHoldList = toDelete->next;
 	}
 	previousNode->next = toDelete->next;
-	toDelete->next = NULL;
-	convertToMinutes(toDelete->timeStamp);
-	return timeInMinutes;
+	timeInMinutes = convertToMinutes(instructionTimeStamp) - convertToMinutes(toDelete->timeStamp);
+	if (*waitTime < timeInMinutes && isQuitting == 0)
+		*waitTime = timeInMinutes;
+	return currentHoldList = toDelete->next; 
 }
 
 int isCustomerHolding(struct custList* currentHoldingList) {
