@@ -12,7 +12,7 @@ struct chatList* next;
 };
 
 struct chatList* appendChatList(struct chatList** currentChatList, char* custName, char* repName) {
-	struct chatList* newNode = (struct repList*)malloc(sizeof(struct repList));         //Create Node of List that will be added                                  
+	struct chatList* newNode = malloc(sizeof(struct repList));         //Create Node of List that will be added                                  
 	struct chatList* lookupNode = currentChatList;                                          //set the working list head into a pointer for finding list
 	strcpy(newNode->custName, custName);                                                 //Append Current Rep into List
 	strcpy(newNode->repName, repName);                                                 //Append Current Rep into List
@@ -41,7 +41,7 @@ void deleteFromChatList(struct chatList** currentChatList, char* custName) {
     }
     if (previousNode == NULL) {
         toDelete = toDelete->next;
-        return;
+        return toDelete;
     }
     previousNode->next = toDelete->next;
     toDelete->next = NULL;

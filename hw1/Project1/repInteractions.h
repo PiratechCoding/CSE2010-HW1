@@ -25,8 +25,8 @@ int isRepAvailable(struct repList* workingList) {
      return workingList;
 }
 
- struct repList* appendRepList(struct repList* workingList, char* repName) {       //Add a Rep to the end of the list
-     struct repList* newNode = (struct repList*)malloc(sizeof(struct repList));         //Create Node of List that will be added                                  
+ struct repList* appendRepList(struct repList* workingList, char** repName) {       //Add a Rep to the end of the list
+     struct repList* newNode = malloc(sizeof(struct repList));         //Create Node of List that will be added                                  
      struct repList* lookupNode = workingList;                                          //set the working list head into a pointer for finding list
      strcpy(newNode->repName, repName);                                                 //Append Current Rep into List
      newNode->next = NULL;                                                              //Set the new node to be the end of list 
@@ -41,18 +41,18 @@ int isRepAvailable(struct repList* workingList) {
      return workingList;
  }
 
- void printAvailableRepList(struct repList* workingList) {                              //Go through list and print all reps in queue
-     struct repList* movingPointer = workingList;
+ void printAvailableRepList(struct repList** workingList) {                              //Go through list and print all reps in queue
+     struct repList* movingPointer = (*workingList);
      while (movingPointer->next != NULL) {
          printf("%s ", (*movingPointer->repName));
          movingPointer = movingPointer->next;
      }
      printf("%s \n", (*movingPointer->repName));
  }
- struct repList* deleteFromRepList(struct repList* workingList, char* nameToDelete) {        //Take a rep out of the avaiable queue
+ struct repList* deleteFromRepList(struct repList** workingList, char* nameToDelete) {        //Take a rep out of the avaiable queue
      struct repList* toDelete = workingList;
      struct repList* previousNode = NULL;
-     while ((strcmp(toDelete->repName, nameToDelete) != 0)) {
+     while ((strcmp((*toDelete->repName), nameToDelete) != 0)) {
          if (toDelete->next != NULL) {
              previousNode = toDelete;
              toDelete = toDelete->next;
